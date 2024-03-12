@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UISliderRepresentation: UIViewRepresentable {
     
-    @Binding var difference: Int
+    @Binding var targetValue: Int
     @Binding var sliderValue: Double
     
     func makeUIView(context: Context) -> UISlider {
@@ -31,7 +31,7 @@ struct UISliderRepresentation: UIViewRepresentable {
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.thumbTintColor = uiView
             .thumbTintColor?
-            .withAlphaComponent(Double(difference)/100)
+            .withAlphaComponent(1 - abs((Double(targetValue) - sliderValue))/100)
     }
     
     func makeCoordinator() -> Coordinator {
@@ -56,7 +56,7 @@ extension UISliderRepresentation {
 
 #Preview {
     UISliderRepresentation(
-        difference: .constant(90),
-        sliderValue: .constant(50)
+        targetValue: .constant(33),
+        sliderValue: .constant(77)
     )
 }

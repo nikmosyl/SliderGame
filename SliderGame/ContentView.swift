@@ -19,7 +19,7 @@ struct ContentView: View {
             Text("Подвиньте слайдер, как можно ближе к \(targetValue)")
             
             UISliderRepresentation(
-                difference: $difference,
+                targetValue: $targetValue,
                 sliderValue: $currentValue
             )
             
