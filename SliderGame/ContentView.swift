@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var difference = 100
     @State private var targetValue = Int.random(in: 0...100)
     @State private var currentValue = 50.0
     
@@ -38,7 +37,6 @@ struct ContentView: View {
     }
     
     private func check() {
-        difference = computeScore()
         showAlert.toggle()
     }
     
