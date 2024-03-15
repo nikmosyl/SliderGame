@@ -18,14 +18,17 @@ struct ContentView: View {
             Text("Подвиньте слайдер, как можно ближе к \(targetValue)")
             
             UISliderRepresentation(
-                targetValue: $targetValue,
-                sliderValue: $currentValue
+                value: $currentValue,
+                alpha: Double(computeScore())/100.0
             )
             
             Button(action: check) {
                 Text("Проверь мения")
             }
-            .alert("Ваш результат: \(computeScore())", isPresented: $showAlert, actions: {})
+            .alert("Ваш результат: \(computeScore())",
+                   isPresented: $showAlert,
+                   actions: {}
+            )
             
             Button(action: reset) {
                 Text("Начать заново")
